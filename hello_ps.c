@@ -46,6 +46,12 @@ int main(int argc, char *argv[]){
         }
 
         rv = ps_end_utt(ps)
+        hyp = ps_get_hyp(ps, &score);
+        std::cout << "Recognized: " << hyp << std::endl;
+
+        fclose(fh);
+        ps_free(ps);
+        cmd_ln_free_r(config);
 
         return 0;
 }
